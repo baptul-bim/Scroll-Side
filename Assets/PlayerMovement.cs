@@ -9,6 +9,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     float playerSpeed;
 
+    public Vector2 jumpHeight;
+
 
     // Start is called before the first frame update
     void Start()
@@ -32,5 +34,11 @@ public class PlayerMovement : MonoBehaviour
 
         }
 
+
+        if (Input.GetKeyDown(KeyCode.Space))  //makes player jump
+        {
+            GetComponent<Rigidbody2D>().AddForce(jumpHeight, ForceMode2D.Impulse);
+
+        }
     }
 }
