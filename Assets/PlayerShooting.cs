@@ -5,9 +5,7 @@ using UnityEngine;
 public class PlayerShooting : MonoBehaviour
 {
     public Transform projectileSpawner;
-    public GameObject scrollProjectile0;
-    public GameObject scrollProjectile1;
-    public GameObject scrollProjectile2;
+    public GameObject[] scrollProjectile;
     public int currentAttack;
 
     // Start is called before the first frame update
@@ -21,18 +19,10 @@ public class PlayerShooting : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Mouse0))
         {
-            if (currentAttack == 0)
-            {
+            Instantiate(scrollProjectile[currentAttack], transform.position, Quaternion.identity);
 
-            }
-            if (currentAttack == 1)
-            {
 
-            }
-            if (currentAttack == 2)
-            {
-
-            }
+            Vector3 mousePos = Input.mousePosition;
         }
     }
 }
