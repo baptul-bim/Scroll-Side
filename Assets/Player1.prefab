@@ -195,10 +195,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectileSpawner: {fileID: 0}
-  scrollProjectile0: {fileID: 0}
-  scrollProjectile1: {fileID: 0}
-  scrollProjectile2: {fileID: 0}
-  currentAttack: 0
+  scrollProjectile:
+  - {fileID: 8765861062394151410, guid: 7a478610890067f41ba192d2fb69641f, type: 3}
+  - {fileID: 8765861062394151410, guid: 134f42c1361c0df4b8208675b4353af6, type: 3}
+  currentAttack: 1
 --- !u!114 &476832882829004427
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -211,3 +211,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ac7b78c0f8e0444ea99239a107919fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Health: 5
