@@ -34,6 +34,7 @@ public class Enemy1 : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             collision.gameObject.GetComponent<PlayerHealth>().Damaged();
+            Destroy(gameObject);
 
 
         }
