@@ -11,13 +11,13 @@ public class PlayerShooting : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        currentAttack = 0;
+        currentAttack = 1;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             Instantiate(scrollProjectile[currentAttack], transform.position, Quaternion.identity);
 

@@ -2,12 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Projectile0Script : MonoBehaviour
+public class Projectile1Script : MonoBehaviour
 {
     [SerializeField]
     float projectileSpeed;
 
+    [SerializeField]
+    ParticleSystem explosionParticle;
+
     Vector3 worldPos;
+    float explodeTimer;
 
     // Start is called before the first frame update
     void Start()
@@ -25,17 +29,17 @@ public class Projectile0Script : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        explodeTimer = explodeTimer + Time.deltaTime;
         //åker framåt
-        transform.position += transform.up * Time.deltaTime * projectileSpeed;
-        Destroy(gameObject, 7);
-    }
+        transform.position = Vector3.Lerp(transform.position, worldPos, projectileSpeed * Time.deltaTime);
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        //går sönder när den rör en vägg
-        if (collision.gameObject.tag == ("Terrain"))
+        if (explodeTimer >= 1)
         {
+            Instantiate(explosionParticle, transform.position, transform.rotation);
             Destroy(gameObject);
+
         }
+
+        Destroy(gameObject, 7);
     }
 }
