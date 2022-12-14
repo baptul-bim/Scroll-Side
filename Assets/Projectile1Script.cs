@@ -35,8 +35,10 @@ public class Projectile1Script : MonoBehaviour
 
         if (explodeTimer >= 1)
         {
-            Instantiate(explosionParticle, transform.position, transform.rotation);
+            Instantiate(explosionParticle, transform.position, transform.rotation, transform.parent);
+
             Destroy(gameObject);
+
 
         }
 

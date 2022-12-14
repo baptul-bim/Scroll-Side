@@ -8,10 +8,15 @@ public class PlayerShooting : MonoBehaviour
     public GameObject[] scrollProjectile;
     public int currentAttack;
 
+    AudioSource source;
+    [SerializeField]
+    AudioClip shootSfx;
+
     // Start is called before the first frame update
     void Start()
     {
         currentAttack = 1;
+        source = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -20,6 +25,7 @@ public class PlayerShooting : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             Instantiate(scrollProjectile[currentAttack], transform.position, Quaternion.identity);
+            source.PlayOneShot(shootSfx);
 
 
             Vector3 mousePos = Input.mousePosition;
