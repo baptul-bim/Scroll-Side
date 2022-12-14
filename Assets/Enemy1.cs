@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class Enemy1 : MonoBehaviour
 {
+    
+   
     public Transform target;
     [SerializeField]
     public float speed = 3f;
+    
 
 
     // Start is called before the first frame update
@@ -18,6 +21,7 @@ public class Enemy1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         //rotate to look at the player
         transform.LookAt(target.position);
         transform.Rotate(new Vector3(0, -90, 0), Space.Self);//correcting the original rotation
