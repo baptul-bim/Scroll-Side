@@ -213,4 +213,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameOverText: {fileID: 0}
   Health: 5
-  deathSfx: {fileID: 8300000, guid: d1295b0d4b891e04ca27303961e8d76c, type: 3}
+  deathSfx: {fileID: 0}
