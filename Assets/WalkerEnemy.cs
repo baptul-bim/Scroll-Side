@@ -20,7 +20,11 @@ public class WalkerEnemy : MonoBehaviour
         // Kolla om spelaren �r �t h�ger eller v�nster
         if (target.position.x < transform.position.x)
         {
-            
+            transform.position += -transform.right * speed * Time.deltaTime;
+        }
+        else if (target.position.x > transform.position.x)   
+        {
+            transform.position += transform.right * speed * Time.deltaTime;
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
