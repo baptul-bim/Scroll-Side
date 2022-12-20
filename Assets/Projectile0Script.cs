@@ -32,8 +32,8 @@ public class Projectile0Script : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //går sönder när den rör en vägg
-        if (collision.gameObject.tag == ("Terrain"))
+        //går sönder när den rör en vägg eller fiende
+        if (collision.gameObject.tag == ("Terrain")||collision.gameObject.tag==("Enemy"))
         {
             Destroy(gameObject);
         }
