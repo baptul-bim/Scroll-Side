@@ -2,27 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyAI : MonoBehaviour
+public class WalkerEnemy : MonoBehaviour
 {
-    public float speed = 2f; // adjust this to change the enemy's walking speed
-    public Transform player; // drag the player's transform component here
+    [SerializeField]
+    public Transform target;
+    public float speed = 2f;
 
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
     void Update()
     {
-        // calculate the distance between the enemy and the player on the x axis
-        float distance = player.position.x - transform.position.x;
-
-        // if the distance is greater than 0 (i.e. the player is to the right of the enemy)
-        if (distance > 0)
+        // Kolla om spelaren �r �t h�ger eller v�nster
+        if (target.position.x < transform.position.x)
         {
-            // move the enemy towards the player on the x axis
-            transform.position = new Vector2(transform.position.x + speed * Time.deltaTime, transform.position.y);
+            
         }
-        // if the distance is less than 0 (i.e. the player is to the left of the enemy)
-        else if (distance < 0)
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
         {
-            // move the enemy towards the player on the x axis
-            transform.position = new Vector2(transform.position.x - speed * Time.deltaTime, transform.position.y);
+            collision.gameObject.GetComponent<PlayerHealth>().Damaged();
+            Destroy(gameObject);
         }
     }
 }
