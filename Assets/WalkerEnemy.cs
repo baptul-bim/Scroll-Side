@@ -17,10 +17,11 @@ public class WalkerEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Kolla på spelaren och fixa rotation.
-        transform.LookAt(target.position);
-        transform.Rotate(new Vector3(0, -90, 0), Space.Self);
-        transform.position = Vector3.MoveTowards(transform.position, target, Time.deltaTime * speed);
+        // Kolla om spelaren är åt höger eller vänster
+        if (target.position.x < transform.position.x)
+        {
+            
+        }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
