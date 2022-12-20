@@ -18,11 +18,13 @@ public class NextRoom : MonoBehaviour
     void Start()
     {
         player1 = FindObjectOfType<PlayerMovement>().transform;
+
     }
 
 
     IEnumerator Change()
     {
+        //flyttar på rummet och spelaren
         for (int i = 0; i < 4; i++)
         {
             transform.position -= transform.right * scrollSpeed;
@@ -35,6 +37,7 @@ public class NextRoom : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //checkar om fiender lever och om spelaren går till nästa rum
         if (player1.position.x >= 12f && enemyAlive <= 0)
         {
             if (room.Length > 0)
