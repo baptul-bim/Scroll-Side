@@ -17,10 +17,14 @@ public class WalkerEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Kolla om spelaren är åt höger eller vänster
+        // Kolla om spelaren ï¿½r ï¿½t hï¿½ger eller vï¿½nster
         if (target.position.x < transform.position.x)
         {
-            
+            transform.position += -transform.right * speed * Time.deltaTime;
+        }
+        else if (target.position.x > transform.position.x)   
+        {
+            transform.position += transform.right * speed * Time.deltaTime;
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
