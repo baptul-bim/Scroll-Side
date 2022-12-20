@@ -20,7 +20,7 @@ public class WalkerEnemy : MonoBehaviour
         // Kolla på spelaren och fixa rotation.
         transform.LookAt(target.position);
         transform.Rotate(new Vector3(0, -90, 0), Space.Self);
-        transform.position = Vector3.MoveTowards(transform.position, target, Time.deltaTime * speed);
+        transform.position = Vector3.MoveTowards(transform.position, target.position, Time.deltaTime * speed);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
